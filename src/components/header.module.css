@@ -1,0 +1,68 @@
+.site-header {
+  font-family: 'Nunito Sans', sans-serif;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+.site-header nav {
+  background: #FFF;
+  padding: 0 1em;
+}
+.site-header a:link,
+.site-header a:visited {
+  font-weight: 700;
+  color:#663399;
+  text-decoration: none;
+}
+.site-header a:active,
+.site-header a:hover {
+  font-weight: 700;
+  color:#1D1D1D;
+  text-decoration: none;
+}
+.site-header .menu {   
+  list-style-type: none;
+  margin:0;
+  padding:0;
+}
+.site-header .logo {
+  font-size: 2em;
+  padding: 0.5em 1em 0.5em 0;
+}
+.site-header .title {
+  display:none;
+}
+.site-header .logo img {
+  vertical-align:middle;
+  margin-right:1em;
+}
+.site-header .item {
+  padding: 1em;
+}
+
+.site-header .menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;     
+    flex-wrap: nowrap;
+    background: none;
+}
+.site-header .logo {
+    flex: 1;
+}
+.site-header .menu li a {
+  display: block;
+  padding: 0.5em 0.25em;
+}
+.site-header .item {
+    position: relative;
+    display: block; 
+    text-align: center;
+    width: auto;
+}
+@media only screen and (min-width:769px) {
+  .site-header .title {
+    display:inline-block;
+  }
+}

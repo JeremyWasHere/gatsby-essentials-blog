@@ -1,0 +1,59 @@
+{
+  "name": "gatsby-essentials-blog",
+  "private": false,
+  "description": "A starter blog demonstrating what Gatsby can do, plus some essential tweaks that every blog owner would probably want.",
+  "version": "0.1.0",
+  "author": "Jeremy Parnell <mathews.kyle@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/JeremyWasHere/gatsby-essentials-blog/issues"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.30",
+    "@fortawesome/free-brands-svg-icons": "^5.14.0",
+    "@fortawesome/react-fontawesome": "^0.1.11",
+    "gatsby": "^2.24.63",
+    "gatsby-image": "^2.4.19",
+    "gatsby-plugin-feed": "^2.5.12",
+    "gatsby-plugin-google-analytics": "^2.3.14",
+    "gatsby-plugin-google-fonts": "^1.0.1",
+    "gatsby-plugin-manifest": "^2.4.30",
+    "gatsby-plugin-offline": "^3.2.28",
+    "gatsby-plugin-react-helmet": "^3.3.11",
+    "gatsby-plugin-sharp": "^2.6.36",
+    "gatsby-plugin-sitemap": "^2.4.13",
+    "gatsby-remark-copy-linked-files": "^2.3.15",
+    "gatsby-remark-images": "^3.3.30",
+    "gatsby-remark-prismjs": "^3.5.13",
+    "gatsby-remark-responsive-iframe": "^2.4.14",
+    "gatsby-remark-smartypants": "^2.3.11",
+    "gatsby-source-filesystem": "^2.3.30",
+    "gatsby-transformer-remark": "^2.8.35",
+    "gatsby-transformer-sharp": "^2.5.15",
+    "prismjs": "^1.21.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-helmet": "^5.2.1"
+  },
+  "devDependencies": {
+    "prettier": "2.1.1"
+  },
+  "homepage": "https://github.com/JeremyWasHere/gatsby-essentials-blog#readme",
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "0BSD",
+  "main": "n/a",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JeremyWasHere/gatsby-essentials-blog.git"
+  },
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+  }
+}
