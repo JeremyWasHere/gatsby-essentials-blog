@@ -37,7 +37,7 @@ const ContentPageTemplate = ({ data, location }) => {
 export default ContentPageTemplate
 
 export const pageQuery = graphql`
-  query PageBySlug($slug: String!) {
+  query pageBySlug($slug: String!) {
     site {
       siteMetadata {
         title,

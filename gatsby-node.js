@@ -1,4 +1,6 @@
 const path = require(`path`)
+const _ = require("lodash")
+
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
 exports.createPages = async ({ graphql, actions }) => {
@@ -7,9 +9,9 @@ exports.createPages = async ({ graphql, actions }) => {
   const postTemplate = path.resolve(`./src/templates/blog-post.js`)
   const postListTemplate = path.resolve('./src/templates/blog-list.js')
   const pageTemplate = path.resolve(`./src/templates/content-page.js`)
+  const topicListTemplate = path.resolve("src/templates/topic-list.js")
 
-  // Fetch blog posts...
-  const postsResult = await graphql(
+  const result = await graphql(
     `
       {
         site {
@@ -17,7 +19,37 @@ exports.createPages = async ({ graphql, actions }) => {
             numPostsPerPage
           }
         }
-        allMarkdownRemark(
+        pagesRemark: allMarkdownRemark(
+          sort: { fields: [frontmatter___date], order: DESC }
+          filter: {
+            frontmatter: {pageType: {eq: "page"}}
+          }
+            limit: 1000
+          ) {
+          edges {
+            node {
+              fields {
+                slug
+              }
+              frontmatter {
+                title
+                thumbnail {
+                  childImageSharp {
+                    fixed(width: 200, height: 200) {
+                      base64
+                      width
+                      height
+                      src
+                      srcSet
+                    }
+                  }
+                }
+                pageType
+              }
+            }
+          }
+        }
+        postsRemark: allMarkdownRemark(
           sort: { fields: [frontmatter___date], order: DESC }
           filter: {
             frontmatter: {pageType: {eq: "blog"}}
@@ -47,16 +79,21 @@ exports.createPages = async ({ graphql, actions }) => {
             }
           }
         }
+        topicsGroup: allMarkdownRemark(limit: 1000) {
+          group(field: frontmatter___topics) {
+            fieldValue
+          }
+        }
       }
     `
   )
 
-  if (postsResult.errors) {
-    throw postsResult.errors
+  if (result.errors) {
+    throw result.errors
   }
 
-  const numPostsPerPage = postsResult.data.site.siteMetadata.numPostsPerPage
-  const posts = postsResult.data.allMarkdownRemark.edges
+  const numPostsPerPage = result.data.site.siteMetadata.numPostsPerPage
+  const posts = result.data.postsRemark.edges
 
   posts.forEach((post) => {
     createPage({
@@ -67,16 +104,15 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     })
 
-    const postsPerPage = numPostsPerPage;
-    const numPages = Math.ceil(posts.length / postsPerPage);
+    const numPages = Math.ceil(posts.length / numPostsPerPage)
 
     Array.from({ length: numPages }).forEach((_, i) => {
       createPage({
         path: i === 0 ? `/blog` : `/blog/${i + 1}`,
         component: postListTemplate,
         context: {
-          limit: postsPerPage,
-          skip: i * postsPerPage,
+          limit: numPostsPerPage,
+          skip: i * numPostsPerPage,
           numPages,
           currentPage: i + 1
         },
@@ -84,54 +120,19 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   })
 
-  // Fetch content pages...
-  const pagesResult = await graphql(
-    `
-      {
-        site {
-          siteMetadata {
-            numPostsPerPage
-          }
-        }
-        allMarkdownRemark(
-          sort: { fields: [frontmatter___date], order: DESC }
-          filter: {
-            frontmatter: {pageType: {eq: "page"}}
-          }
-          limit: 1000
-        ) {
-          edges {
-            node {
-              fields {
-                slug
-              }
-              frontmatter {
-                title
-                thumbnail {
-                  childImageSharp {
-                    fixed(width: 200, height: 200) {
-                      base64
-                      width
-                      height
-                      src
-                      srcSet
-                    }
-                  }
-                }
-                pageType
-              }
-            }
-          }
-        }
+  const topics = result.data.topicsGroup.group
+
+  topics.forEach(topic => {
+    createPage({
+      path: `/topic/${_.kebabCase(topic.fieldValue)}/`,
+      component: topicListTemplate,
+      context: {
+        topic: topic.fieldValue,
       }
-    `
-  )
+    })
+  })
 
-  if (pagesResult.errors) {
-    throw pagesResult.errors
-  }
-
-  const pages = pagesResult.data.allMarkdownRemark.edges
+  const pages = result.data.pagesRemark.edges
 
   pages.forEach((page) => {
     createPage({

@@ -11,6 +11,7 @@ This project was inspired/started by the [Gatsby Starter Blog](https://github.co
 - Thumbnail images - Added to the list of blog posts but also included in the Twitter/Facebook metatags.
 - Pagination - You're going to write a lot of posts. You don't want the list to grow forever!
 - Read more cards - If a visitor reads your post, why not suggest more for them?
+- Topics - Group together into topical lists.
 - Site map - Essential for Google Search Console and SEO.
 
 Adding some additional essential features soon.

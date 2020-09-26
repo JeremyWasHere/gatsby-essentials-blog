@@ -5,6 +5,7 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import ReadMore from "../components/read-more"
 import Share from "../components/share"
+import Topics from "../components/topics"
 import SEO from "../components/seo"
 
 import styles from "./blog-post.module.css"
@@ -36,6 +37,8 @@ const BlogPostTemplate = ({ data, location }) => {
 
         <Share url={siteUrl + "/blog" + post.fields.slug} />
 
+        <Topics topics={post.frontmatter.topics} />
+
         <footer>
           <Bio />
         </footer>
@@ -50,7 +53,7 @@ const BlogPostTemplate = ({ data, location }) => {
 export default BlogPostTemplate
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
+  query blogPostBySlug($slug: String!) {
     site {
       siteMetadata {
         title,
@@ -66,6 +69,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        topics
         thumbnail {
           childImageSharp {
             fixed(width: 1080, height: 1080) {

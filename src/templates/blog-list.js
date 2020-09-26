@@ -15,7 +15,6 @@ const BlogIndex = ({ data, location, pageContext }) => {
 
     const { currentPage, numPages } = pageContext
 
-
     return (
         <Layout location={location} title={siteTitle}>
             <SEO

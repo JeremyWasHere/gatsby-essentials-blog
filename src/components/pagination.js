@@ -10,7 +10,7 @@ const Pagination = (props) => {
     const nextPage = props.path + (props.currentPage + 1)
 
     return (
-        <nav className={styles.pager}>
+        <nav className={styles.pager} style={{ display: props.numPages === 1 ? "none" : "block" }}>
             <ul>
                 {!isFirst && (
                     <li key="pagination-prev" className={styles.item}>

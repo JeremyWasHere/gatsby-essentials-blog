@@ -2,6 +2,7 @@
 title: My Second Post!
 date: "2015-05-06T23:46:37.121Z"
 thumbnail: "../../assets/default-content-image.jpg"
+topics: ["blogging","ducks", "eggs", "food"]
 pageType: "blog"
 ---
 

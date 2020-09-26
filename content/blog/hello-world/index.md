@@ -3,6 +3,7 @@ title: Hello World
 date: "2015-05-01T22:12:03.284Z"
 description: "Hello World"
 thumbnail: "./salty_egg.jpg"
+topics: ["ducks", "eggs", "food"]
 pageType: "blog"
 ---
 
