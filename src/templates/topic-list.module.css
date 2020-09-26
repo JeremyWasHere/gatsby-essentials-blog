@@ -1,0 +1,117 @@
+.topic-list {
+    background-color: #FFF;
+    margin: 0;
+    padding: 2em;
+    font-family: 'Crimson Text', serif;
+    font-size: 1.25em;
+    color:#231f20;
+    line-height: 1.5em;
+    box-shadow: 0 2px 2px rgba(100, 100, 100, 0.1);
+  }
+
+.topic-list h2 {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 1.5em;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin:0;
+}
+
+.topic-list .post-count {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 0.9em;
+  font-weight: 300;
+  color: #666;
+  margin-bottom:3em;
+}
+
+.topic-list article {
+    display: block;
+    width: 100%;
+    margin-bottom: 3em;
+}
+
+.topic-list article .image {
+    max-width: 300px;
+    margin: 0 auto 1em auto;
+    overflow: hidden;
+}
+
+.topic-list article h3 {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 1.5em;
+    font-weight: 700;
+    line-height: 1.4em;
+    color: #1D1D1D;
+    margin: 0;
+}
+
+.topic-list article h3 a:link,
+.topic-list article h3 a:visited {
+  color: #1D1D1D;
+  text-decoration: none;
+}
+
+.topic-list article h3 a:hover,
+.topic-list article h3 a:active {
+  color:#663399;
+  text-decoration: none;
+}
+
+.topic-list article p {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 0.9em;
+    font-weight: 300;
+    line-height: 1.5em;
+  }
+
+.topic-list article .cta {
+    font-weight:700;
+    color:#663399;
+    text-transform: uppercase;
+}
+
+.topic-list article .cta a:link,
+.topic-list article .cta a:visited {
+    color:#663399;
+  text-decoration: none;
+}
+
+.topic-list article .cta a:hover,
+.topic-list article .cta a:active {
+  color: #1D1D1D;
+  text-decoration: none;
+}
+
+@media only screen and (min-width:769px) {
+    .topic-list {
+        margin: 0 auto 5em auto;
+        max-width: 800px;
+        padding: 4em 4em 2em 4em;
+    }
+
+    .topic-list article {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+        margin-bottom: 3em;
+    }
+    
+    .topic-list article .image {
+        display: flex;
+        flex-direction: column;
+        flex-basis: 100%;
+        flex: 1;
+        max-width: none;
+        margin: 0 1.5em 0 0;
+        overflow: hidden;
+    }
+    
+    .topic-list article .text {
+        display: flex;
+        flex-direction: column;
+        flex-basis: 100%;
+        flex: 2;
+    }
+  }

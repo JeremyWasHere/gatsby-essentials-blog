@@ -1,0 +1,38 @@
+.topics {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size:0.8em;
+    margin-top:3em;
+}
+
+.topics ul {
+    display: inline-block;
+    list-style-type: none;
+    padding:0 !important;
+    margin:0 0 0 1em !important;
+}
+
+.topics ul li {
+    display: inline-block;
+    margin: 0 1em 0 0 !important;
+    padding:0 !important;
+}
+
+.topics ul li a:link,
+.topics ul li a:visited {
+    text-decoration: none;
+    border-bottom: none;
+    padding:0.15em 0.5em !important;
+    border: 1px solid #EEE;
+    border-radius: 4px;
+}
+
+.topics ul li a:active,
+.topics ul li a:hover {
+    color:#FFF;
+    background-color: #663399;
+    text-decoration: none;
+    border-bottom: none;
+    padding:0.15em 0.5em !important;
+    border: 1px solid #663399;
+    border-radius: 4px;
+}
