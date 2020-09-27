@@ -18,6 +18,7 @@ const ReadMore = (props) => {
           ) {
         edges {
           node {
+            id
             excerpt
             fields {
               slug
@@ -46,7 +47,7 @@ const ReadMore = (props) => {
 
     const posts = data.allMarkdownRemark.edges
 
-    let randomPosts = props.isHome ? posts.slice(0,displayCount) : getRandomPosts(posts, displayCount)
+    let randomPosts = props.isHome ? posts.slice(0,displayCount) : getRandomPosts(posts, displayCount, props.exclude)
 
     let header = props.isHome ? "<h2>A few things I have written about</h2>" : "<h2>Read this next</h2>"
 
@@ -88,7 +89,12 @@ const ReadMore = (props) => {
 
 export default ReadMore
 
-function getRandomPosts(population, k) {
+function getRandomPosts(population, k, exclude) {
+
+    population = population.filter(function( obj ) {
+        return obj.node.id !== exclude;
+    });
+
     let n = population.length;
     if (k < 0 || k > n)
         return population;

@@ -44,7 +44,7 @@ const BlogPostTemplate = ({ data, location }) => {
         </footer>
       </article>
 
-      <ReadMore displayCount={3} isHome={false} />
+      <ReadMore displayCount={3} isHome={false} exclude={post.id} />
 
     </Layout>
   )
